@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name | Portfolio</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-alt: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --heading: #f0f6fc;
+    --accent: #58a6ff;
+    --muted: #8b949e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  header {
+    text-align: center;
+    padding: 4rem 1.5rem 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--border);
+    margin-bottom: 1rem;
+    object-fit: cover;
+  }
+  header h1 {
+    font-size: 2rem;
+    color: var(--heading);
+  }
+  header p {
+    color: var(--muted);
+    margin-top: 0.5rem;
+    font-size: 1.05rem;
+  }
+  .social-links {
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .social-links a {
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+  }
+  .social-links a:hover {
+    background: var(--bg-alt);
+  }
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+  }
+  section {
+    margin-bottom: 3rem;
+  }
+  section h2 {
+    color: var(--heading);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .about p {
+    color: var(--text);
+  }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+  .project-card {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+  }
+  .project-card h3 {
+    color: var(--heading);
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+  .project-card p {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin-bottom: 0.8rem;
+  }
+  .project-card a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  .project-card a:hover {
+    text-decoration: underline;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+  }
+  .tag {
+    background: rgba(88, 166, 255, 0.12);
+    color: var(--accent);
+    font-size: 0.75rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+  }
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .skills-list span {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.35rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+  }
+  footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="https://placehold.co/120x120/161b22/8b949e?text=Photo" alt="Profile photo">
+  <h1>Your Name</h1>
+  <p>Software Developer &middot; Building things for the web</p>
+  <div class="social-links">
+    <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:you@example.com">Email</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a developer who enjoys building clean, functional software. Replace this
+      paragraph with a short summary of who you are, what you work on, and what
+      you're currently learning or interested in.
+    </p>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <span>JavaScript</span>
+      <span>Python</span>
+      <span>HTML &amp; CSS</span>
+      <span>React</span>
+      <span>Git</span>
+      <span>SQL</span>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <h3>Project One</h3>
+        <div class="tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">Node.js</span>
+        </div>
+        <p>A short description of what this project does and the problem it solves.</p>
+        <a href="https://github.com/yourusername/project-one" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Project Two</h3>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">API</span>
+        </div>
+        <p>A short description of what this project does and the problem it solves.</p>
+        <a href="https://github.com/yourusername/project-two" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Project Three</h3>
+        <div class="tags">
+          <span class="tag">React</span>
+          <span class="tag">CSS</span>
+        </div>
+        <p>A short description of what this project does and the problem it solves.</p>
+        <a href="https://github.com/yourusername/project-three" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Built with HTML &amp; CSS &middot; <a href="https://github.com/yourusername" target="_blank" rel="noopener">github.com/yourusername</a></p>
+</footer>
+
+</body>
+</html>
