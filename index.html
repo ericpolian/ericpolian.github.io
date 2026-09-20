@@ -2,236 +2,381 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Name | Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio — Finance, Rutgers Business School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d1117;
-    --bg-alt: #161b22;
-    --border: #30363d;
-    --text: #c9d1d9;
-    --heading: #f0f6fc;
-    --accent: #58a6ff;
-    --muted: #8b949e;
+    --paper: #FAF8F3;
+    --paper-line: #DAD3C4;
+    --ink: #16232E;
+    --ink-soft: #4B5A64;
+    --ledger-green: #2E4A3A;
+    --ledger-green-deep: #1D2F26;
+    --gold: #A9873F;
+    --gold-soft: #C7A85E;
+    --card: #FFFFFF;
+    --shadow: rgba(22, 35, 46, 0.08);
+    --focus: #2E4A3A;
+
+    --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #12181C;
+      --paper-line: #2A342F;
+      --ink: #EDEAE1;
+      --ink-soft: #A9B3AC;
+      --ledger-green: #6FA383;
+      --ledger-green-deep: #8FBBA0;
+      --gold: #D2B265;
+      --gold-soft: #E3C878;
+      --card: #1A211F;
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #12181C;
+    --paper-line: #2A342F;
+    --ink: #EDEAE1;
+    --ink-soft: #A9B3AC;
+    --ledger-green: #6FA383;
+    --ledger-green-deep: #8FBBA0;
+    --gold: #D2B265;
+    --gold-soft: #E3C878;
+    --card: #1A211F;
+    --shadow: rgba(0, 0, 0, 0.35);
+  }
+
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  * { box-sizing: border-box; }
+
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
-  header {
-    text-align: center;
-    padding: 4rem 1.5rem 2.5rem;
-    border-bottom: 1px solid var(--border);
+
+  a { color: var(--ledger-green-deep); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
   }
-  header img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid var(--border);
-    margin-bottom: 1rem;
-    object-fit: cover;
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
   }
-  header h1 {
-    font-size: 2rem;
-    color: var(--heading);
+
+  /* ---------- Header ---------- */
+  header.masthead {
+    border-bottom: 1px solid var(--paper-line);
+    padding: 56px 0 28px;
   }
-  header p {
-    color: var(--muted);
-    margin-top: 0.5rem;
-    font-size: 1.05rem;
-  }
-  .social-links {
-    margin-top: 1.2rem;
+  .masthead-top {
     display: flex;
-    justify-content: center;
-    gap: 1rem;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
     flex-wrap: wrap;
   }
-  .social-links a {
-    color: var(--accent);
-    text-decoration: none;
-    border: 1px solid var(--border);
-    padding: 0.4rem 0.9rem;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    transition: background 0.2s ease;
+  .masthead-mark {
+    font-family: var(--font-display);
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
   }
-  .social-links a:hover {
-    background: var(--bg-alt);
+  .masthead-date {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
   }
-  main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2.5rem 1.5rem;
+  .profile-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
   }
-  section {
-    margin-bottom: 3rem;
+  .headshot {
+    width: 148px;
+    height: 148px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--card);
+    border: 1px solid var(--paper-line);
+    box-shadow: 0 2px 6px var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-soft);
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    text-align: center;
+    line-height: 1.4;
   }
-  section h2 {
-    color: var(--heading);
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border);
+  h1.name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    margin: 20px 0 4px;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
   }
-  .about p {
-    color: var(--text);
+  .role-line {
+    font-size: 1rem;
+    color: var(--ledger-green-deep);
+    font-weight: 500;
+    margin: 0;
   }
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.2rem;
+  .class-line {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-weight: 400;
+    margin: 4px 0 0;
   }
-  .project-card {
-    background: var(--bg-alt);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.2rem;
-    transition: transform 0.15s ease, border-color 0.15s ease;
+
+  /* ---------- Statement ---------- */
+  section.statement {
+    padding: 46px 0 10px;
   }
-  .project-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent);
+  .statement-inner {
+    position: relative;
+    padding-left: 26px;
+    border-left: 3px solid var(--ledger-green);
   }
-  .project-card h3 {
-    color: var(--heading);
-    font-size: 1.05rem;
-    margin-bottom: 0.5rem;
+  .statement p {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0;
+    max-width: 66ch;
   }
-  .project-card p {
-    color: var(--muted);
-    font-size: 0.92rem;
-    margin-bottom: 0.8rem;
+
+  /* ---------- Section heading pattern ---------- */
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin: 0 0 26px;
   }
-  .project-card a {
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 0.88rem;
+  .section-head .index {
+    font-family: var(--font-display);
+    color: var(--gold);
+    font-size: 1rem;
     font-weight: 600;
   }
-  .project-card a:hover {
-    text-decoration: underline;
+  .section-head h2 {
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 600;
+    margin: 0;
   }
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 0.8rem;
+  .section-head .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--paper-line);
   }
-  .tag {
-    background: rgba(88, 166, 255, 0.12);
-    color: var(--accent);
-    font-size: 0.75rem;
-    padding: 0.15rem 0.55rem;
-    border-radius: 999px;
+
+  /* ---------- Skills ledger ---------- */
+  section.skills {
+    padding: 54px 0;
   }
-  .skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
+  .ledger {
+    border-top: 1px solid var(--paper-line);
   }
-  .skills-list span {
-    background: var(--bg-alt);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 0.35rem 0.8rem;
-    border-radius: 6px;
-    font-size: 0.9rem;
+  .ledger-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 4px;
+    border-bottom: 1px solid var(--paper-line);
   }
+  .ledger-row .skill-name {
+    font-size: 1.02rem;
+    font-weight: 500;
+  }
+  .ledger-row .skill-kind {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .ledger-row .skill-kind::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ledger-green);
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .ledger-row.tool .skill-kind::before { background: var(--gold); }
+
+  /* ---------- Projects ---------- */
+  section.projects {
+    padding: 54px 0 70px;
+  }
+  .project-slots {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .project-slot {
+    background: var(--card);
+    border: 1px solid var(--paper-line);
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: 0 1px 2px var(--shadow);
+  }
+  .project-slot .slot-label {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    margin: 0 0 8px;
+  }
+  .project-slot h3 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: var(--ink-soft);
+  }
+  .project-slot p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Footer ---------- */
   footer {
-    text-align: center;
-    padding: 2rem 1.5rem;
-    color: var(--muted);
+    border-top: 1px solid var(--paper-line);
+    padding: 26px 0 50px;
     font-size: 0.85rem;
-    border-top: 1px solid var(--border);
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
   }
-  footer a {
-    color: var(--accent);
-    text-decoration: none;
+
+  @media (min-width: 620px) {
+    .project-slots { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 0 18px; }
+    header.masthead { padding-top: 40px; }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <img src="https://placehold.co/120x120/161b22/8b949e?text=Photo" alt="Profile photo">
-  <h1>Your Name</h1>
-  <p>Software Developer &middot; Building things for the web</p>
-  <div class="social-links">
-    <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="mailto:you@example.com">Email</a>
-  </div>
-</header>
+<div class="wrap">
+  <header class="masthead">
+    <div class="masthead-top">
+      <span class="masthead-mark">Portfolio</span>
+      <span class="masthead-date">Finance, New Brunswick</span>
+    </div>
+    <div class="profile-block">
+      <img class="headshot" src="headshot.jpg" alt="Eric Poliansky"
+           onerror="this.onerror=null; this.removeAttribute('src'); this.textContent='Add headshot.jpg';">
+      <h1 class="name">Eric Poliansky</h1>
+      <p class="role-line">Rutgers Business School</p>
+      <p class="class-line">Class of 2028</p>
+    </div>
+  </header>
 
-<main>
-
-  <section class="about">
-    <h2>About Me</h2>
-    <p>
-      I'm a developer who enjoys building clean, functional software. Replace this
-      paragraph with a short summary of who you are, what you work on, and what
-      you're currently learning or interested in.
-    </p>
+  <section class="statement">
+    <div class="statement-inner">
+      <p>I am an undergraduate student at Rutgers Business School New Brunswick, majoring in Finance. Passionate about the world of business, I hope to bring my professionalism to many areas of business and aim to inspire and lead to make the world a better place for everyone.</p>
+    </div>
   </section>
 
   <section class="skills">
-    <h2>Skills</h2>
-    <div class="skills-list">
-      <span>JavaScript</span>
-      <span>Python</span>
-      <span>HTML &amp; CSS</span>
-      <span>React</span>
-      <span>Git</span>
-      <span>SQL</span>
+    <div class="section-head">
+      <span class="index">01</span>
+      <h2>Skills</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="ledger">
+      <div class="ledger-row tool">
+        <span class="skill-name">Microsoft Office</span>
+        <span class="skill-kind">Tool</span>
+      </div>
+      <div class="ledger-row tool">
+        <span class="skill-name">Microsoft Excel</span>
+        <span class="skill-kind">Tool</span>
+      </div>
+      <div class="ledger-row tool">
+        <span class="skill-name">JavaScript</span>
+        <span class="skill-kind">Tool</span>
+      </div>
+      <div class="ledger-row tool">
+        <span class="skill-name">HTML</span>
+        <span class="skill-kind">Tool</span>
+      </div>
+      <div class="ledger-row">
+        <span class="skill-name">Responsibility</span>
+        <span class="skill-kind">Strength</span>
+      </div>
+      <div class="ledger-row">
+        <span class="skill-name">Teamwork</span>
+        <span class="skill-kind">Strength</span>
+      </div>
+      <div class="ledger-row">
+        <span class="skill-name">Patience</span>
+        <span class="skill-kind">Strength</span>
+      </div>
+      <div class="ledger-row">
+        <span class="skill-name">Communication</span>
+        <span class="skill-kind">Strength</span>
+      </div>
     </div>
   </section>
 
   <section class="projects">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <h3>Project One</h3>
-        <div class="tags">
-          <span class="tag">JavaScript</span>
-          <span class="tag">Node.js</span>
-        </div>
-        <p>A short description of what this project does and the problem it solves.</p>
-        <a href="https://github.com/yourusername/project-one" target="_blank" rel="noopener">View on GitHub →</a>
+    <div class="section-head">
+      <span class="index">02</span>
+      <h2>Projects</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="project-slots">
+      <div class="project-slot">
+        <p class="slot-label">Project 01</p>
+        <h3>Add a project title</h3>
+        <p>Replace this block with a short description, the tools you used, and a link to the write-up, repo, or live site.</p>
       </div>
-
-      <div class="project-card">
-        <h3>Project Two</h3>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">API</span>
-        </div>
-        <p>A short description of what this project does and the problem it solves.</p>
-        <a href="https://github.com/yourusername/project-two" target="_blank" rel="noopener">View on GitHub →</a>
+      <div class="project-slot">
+        <p class="slot-label">Project 02</p>
+        <h3>Add a project title</h3>
+        <p>Duplicate this card for each project you want to feature. Keep descriptions to two or three sentences.</p>
       </div>
-
-      <div class="project-card">
-        <h3>Project Three</h3>
-        <div class="tags">
-          <span class="tag">React</span>
-          <span class="tag">CSS</span>
-        </div>
-        <p>A short description of what this project does and the problem it solves.</p>
-        <a href="https://github.com/yourusername/project-three" target="_blank" rel="noopener">View on GitHub →</a>
-      </div>
-
     </div>
   </section>
 
-</main>
+  <footer>
+    <span>&copy; <span id="year"></span> Eric Poliansky</span>
+    <span>ep778@scarletmail.rutgers.edu</span>
+  </footer>
+</div>
 
-<footer>
-  <p>Built with HTML &amp; CSS &middot; <a href="https://github.com/yourusername" target="_blank" rel="noopener">github.com/yourusername</a></p>
-</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
