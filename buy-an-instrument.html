@@ -68,7 +68,7 @@
 
             finalPrice = shippingFees + ((instrumentPrice[index] * units) * (1 - discount / 100));
             totalFinalPrice += finalPrice;
-            alert("Client " + id + ", thanks you for your purchase of " + units + " " + instrument + "s. You will enjoy a discount of " + discount + "%.");
+            alert("Client " + id + ", thanks you for your purchase of " + units + " " + instrument + "s for $" + finalPrice + ". You will enjoy a discount of " + discount + "%.");
 
             if (i === 0) {
                 largeSale = finalPrice;
