@@ -1,0 +1,129 @@
+<!doctype HTML>
+<HTML>
+<head>
+    <!--Eric Poliansky, Section 2-->
+    <!--On my honor, I have neither received nor given any unauthorized assistance on this assignment.-->
+    <title>Musical Instruments Sale</title>
+</head>
+
+<body>
+    <script>
+        var instrumentNames = ["flute", "clarinet", "guitar", "piano", "saxophone"];
+        var instrumentPrice = [750, 300, 200, 5000, 800];
+        var instrumentShip = [35, 35, 35, 600, 35];
+
+        var customerIDs = [];
+        var customerDiscounts = [];
+        var customerInstruments = [];
+        var customerUnits = [];
+        var customerDeliveries = [];
+        var customerFinalPrices = [];
+        var customerShippingFees = [];
+
+        function numArray(array) {
+            for (i = 0; i < array.length; i++) {
+                array[i] = 0;
+            }
+        }
+
+        function stringArray(array) {
+            for (i = 0; i < array.length; i++) {
+                array[i] = "";
+            }
+        }
+
+        function randomDiscount() {
+            return Math.floor(Math.random() * 16) + 10;
+        }
+
+        function randomID() {
+            return Math.floor(Math.random() * 9000) + 1000;
+        }
+
+        var finalPrice = 0;
+        var totalFinalPrice = 0;
+        var shippingFees = 0;
+        var totalShippingFees = 0;
+        var largeSale = 0;
+        var smallSale = 0;
+        var largeDisc = 0;
+        var smallDisc = 0;
+
+        for (i = 0; i < 4; i++) {
+            var instrument, units, delivery;
+            var discount = randomDiscount();
+            var id = randomID();
+            instrument = prompt("Enter Instrument Name (flute/clarinet/guitar/piano/saxophone)");
+            units = prompt("Enter number of units (1-3)");
+            delivery = prompt("Delivery? (yes/no)");
+            index = instrumentNames.indexOf(instrument)
+
+            if (delivery == "yes") {
+                shippingFees = instrumentShip[index] * units;
+                totalShippingFees += shippingFees;
+            }
+            else {
+                shippingFees = 0;
+            }
+
+            finalPrice = shippingFees + ((instrumentPrice[index] * units) * (1 - discount / 100));
+            totalFinalPrice += finalPrice;
+            alert("Client " + id + ", thanks you for your purchase of " + units + " " + instrument + "s. You will enjoy a discount of " + discount + "%.");
+
+            if (i === 0) {
+                largeSale = finalPrice;
+                smallSale = finalPrice;
+            } else {
+                if (finalPrice > largeSale) {
+                    largeSale = finalPrice;
+                }
+                if (finalPrice < smallSale) {
+                    smallSale = finalPrice;
+                }
+            }
+
+            if (i === 0) {
+                largeDisc = discount;
+                smallDisc = discount;
+            } else {
+                if (discount > largeDisc) largeDisc = discount;
+                if (discount < smallDisc) smallDisc = discount;
+            }
+
+
+            customerIDs[i] = id;
+            customerDiscounts[i] = discount;
+            customerInstruments[i] = instrument;
+            customerUnits[i] = units;
+            customerShippingFees[i] = shippingFees;
+            customerFinalPrices[i] = finalPrice;
+
+        }
+
+        document.write("<h2>Musical Instrument Sales Report</h2>");
+        document.write("<h3>Report Date: " + new Date + "</h3>");
+        document.write("<table border='1'>");
+        document.write("<tr><th>ID</th><th>Instrument</th><th>Units</th><th>Shipping Fee</th><th>Discount (%)</th><th>Final Price</th></tr>");
+
+        for (i = 0; i < customerIDs.length; i++) {
+            document.write("<tr>");
+            document.write("<td>" + customerIDs[i] + "</td>");
+            document.write("<td>" + customerInstruments[i] + "</td>");
+            document.write("<td>" + customerUnits[i] + "</td>");
+            document.write("<td>$" + customerShippingFees[i].toFixed(2) + "</td>");
+            document.write("<td>" + customerDiscounts[i] + "</td>");
+            document.write("<td>$" + customerFinalPrices[i].toFixed(2) + "</td>");
+            document.write("</tr>");
+        }
+        document.write("</table>");
+
+        document.write('</br><h3>Total Final Prices: $' + totalFinalPrice.toFixed(2) + '</h3>');
+        document.write('<h3>Total Shipping Fees: $' + totalShippingFees.toFixed(2) + '</h3>');
+        document.write('<h3>Largest Sale: $' + largeSale.toFixed(2) + '</h3>');
+        document.write('<h3>Smallest Sale: $' + smallSale.toFixed(2) + '</h3>');
+        document.write('<h3>Largest Discount: ' + largeDisc + '% </h3>');
+        document.write('<h3>Smallest Discount: ' + smallDisc + '% </h3>');
+    </script>
+</body>
+
+</HTML>
