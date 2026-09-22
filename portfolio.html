@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio — Finance, Rutgers Business School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FAF8F3;
+    --paper-line: #DAD3C4;
+    --ink: #16232E;
+    --ink-soft: #4B5A64;
+    --ledger-green: #2E4A3A;
+    --ledger-green-deep: #1D2F26;
+    --gold: #A9873F;
+    --gold-soft: #C7A85E;
+    --card: #FFFFFF;
+    --shadow: rgba(22, 35, 46, 0.08);
+    --focus: #2E4A3A;
+
+    --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #12181C;
+      --paper-line: #2A342F;
+      --ink: #EDEAE1;
+      --ink-soft: #A9B3AC;
+      --ledger-green: #6FA383;
+      --ledger-green-deep: #8FBBA0;
+      --gold: #D2B265;
+      --gold-soft: #E3C878;
+      --card: #1A211F;
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #12181C;
+    --paper-line: #2A342F;
+    --ink: #EDEAE1;
+    --ink-soft: #A9B3AC;
+    --ledger-green: #6FA383;
+    --ledger-green-deep: #8FBBA0;
+    --gold: #D2B265;
+    --gold-soft: #E3C878;
+    --card: #1A211F;
+    --shadow: rgba(0, 0, 0, 0.35);
+  }
+
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--ledger-green-deep); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Header ---------- */
+  header.masthead {
+    border-bottom: none;
+    padding: 32px 0 0;
+  }
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .masthead-mark {
+    font-family: var(--font-display);
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+  }
+  .masthead-date {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .profile-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+  .headshot {
+    width: 148px;
+    height: 148px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--card);
+    border: 1px solid var(--paper-line);
+    box-shadow: 0 2px 6px var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-soft);
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    text-align: center;
+    line-height: 1.4;
+  }
+  h1.name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    margin: 20px 0 4px;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .role-line {
+    font-size: 1rem;
+    color: var(--ledger-green-deep);
+    font-weight: 500;
+    margin: 0;
+  }
+  .class-line {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-weight: 400;
+    margin: 4px 0 0;
+  }
+
+  .statement-inner p {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0;
+    max-width: 60ch;
+  }
+  .linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 10px 18px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--paper);
+    background: var(--ledger-green);
+    border: 1px solid var(--ledger-green);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .linkedin-btn:hover {
+    background: var(--ledger-green-deep);
+    border-color: var(--ledger-green-deep);
+  }
+
+  /* ---------- Section heading pattern ---------- */
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin: 0 0 26px;
+  }
+  .section-head .index {
+    font-family: var(--font-display);
+    color: var(--gold);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .section-head h2 {
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .section-head .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--paper-line);
+  }
+
+  /* ---------- Skills ledger ---------- */
+  section.skills {
+    padding: 54px 0;
+  }
+  .ledger {
+    border-top: 1px solid var(--paper-line);
+  }
+  .ledger-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 4px;
+    border-bottom: 1px solid var(--paper-line);
+  }
+  .ledger-row .skill-name {
+    font-size: 1.02rem;
+    font-weight: 500;
+  }
+  .ledger-row .skill-kind {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .ledger-row .skill-kind::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ledger-green);
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .ledger-row.tool .skill-kind::before { background: var(--gold); }
+
+  /* ---------- Projects ---------- */
+  section.projects {
+    padding: 54px 0 70px;
+  }
+  .project-slots {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .project-slot {
+    background: var(--card);
+    border: 1px solid var(--paper-line);
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: 0 1px 2px var(--shadow);
+  }
+  .project-slot .slot-label {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    margin: 0 0 8px;
+  }
+  .project-slot h3 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: var(--ink-soft);
+  }
+  .project-slot p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+  .project-slot .project-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ledger-green-deep);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+  }
+  .project-slot .project-link:hover {
+    color: var(--ledger-green);
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--paper-line);
+    padding: 26px 0 50px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (min-width: 620px) {
+    .project-slots { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 0 18px; }
+    header.masthead { padding-top: 40px; }
+  }
+  /* ---------- Intro layout (profile + statement side by side) ---------- */
+  section.intro {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 46px 0 54px;
+    border-bottom: 1px solid var(--paper-line);
+  }
+  section.intro .profile-block {
+    padding-top: 0;
+  }
+  section.intro .statement-inner {
+    padding-left: 26px;
+    border-left: 3px solid var(--ledger-green);
+  }
+
+  @media (max-width: 640px) {
+    section.intro {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+      gap: 24px;
+    }
+    section.intro .statement-inner {
+      border-left: none;
+      border-top: 3px solid var(--ledger-green);
+      padding-left: 0;
+      padding-top: 20px;
+      text-align: left;
+    }
+  }
+
+  /* ---------- Panels (skills + projects side by side) ---------- */
+  .panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    padding: 54px 0 70px;
+  }
+  .panels section.skills,
+  .panels section.projects {
+    padding: 0;
+  }
+  .panels .project-slots {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 720px) {
+    .panels {
+      grid-template-columns: 1fr;
+      gap: 54px;
+      padding-bottom: 50px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="masthead-top">
+      <span class="masthead-mark">Portfolio</span>
+      <span class="masthead-date">Finance, New Brunswick</span>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="profile-block">
+      <img class="headshot" src="headshot.jpg" alt="Eric Poliansky"
+           onerror="this.onerror=null; this.removeAttribute('src'); this.textContent='Add headshot.jpg';">
+      <h1 class="name">Eric Poliansky</h1>
+      <p class="role-line">Rutgers Business School</p>
+      <p class="class-line">Class of 2028</p>
+    </div>
+    <div class="statement-inner">
+      <p>Welcome! I'm Eric, an undergraduate student at Rutgers Business School New Brunswick, majoring in Finance. Passionate about the world of business, I hope to bring my professionalism to many areas of business and aim to inspire and lead to make the world a better place for everyone.</p>
+      <a class="linkedin-btn" href="https://www.linkedin.com/in/eric-poliansky" target="_blank" rel="noopener">LinkedIn Profile</a>
+    </div>
+  </section>
+
+  <div class="panels">
+  <section class="skills">
+    <div class="section-head">
+      <span class="index">01</span>
+      <h2>Skills</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="ledger">
+      <div class="ledger-row tool">
+        <span class="skill-name">Microsoft Office</span>
+        <span class="skill-kind">Tool</span>
+      </div>
+      <div class="ledger-row tool">
+        <span class="skill-name">Microsoft Excel</span>
+        <span class="skill-kind">Tool</span>
+      </div>
+      <div class="ledger-row tool">
+        <span class="skill-name">JavaScript</span>
+        <span class="skill-kind">Tool</span>
+      </div>
+      <div class="ledger-row tool">
+        <span class="skill-name">HTML</span>
+        <span class="skill-kind">Tool</span>
+      </div>
+      <div class="ledger-row">
+        <span class="skill-name">Responsibility</span>
+        <span class="skill-kind">Strength</span>
+      </div>
+      <div class="ledger-row">
+        <span class="skill-name">Teamwork</span>
+        <span class="skill-kind">Strength</span>
+      </div>
+      <div class="ledger-row">
+        <span class="skill-name">Patience</span>
+        <span class="skill-kind">Strength</span>
+      </div>
+      <div class="ledger-row">
+        <span class="skill-name">Communication</span>
+        <span class="skill-kind">Strength</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <div class="section-head">
+      <span class="index">02</span>
+      <h2>Projects</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="project-slots">
+      <div class="project-slot">
+        <p class="slot-label">Project 01</p>
+        <h3 style="color: var(--ink);">Rutgers Chabad Recommendations and Consulting</h3>
+        <p>This project showcased an example of working in a team to help consult the Chabad house located on the Rutgers New Brunswick campus. Together with a team, we collected information to provide recommendations on how to increase funding at the Rutgers Chabad through communicative interviewing and analytical survey processes.</p>
+        <a class="project-link" href="chabad-presentation.pdf" target="_blank" rel="noopener">View Presentation →</a>
+      </div>
+      <div class="project-slot">
+        <p class="slot-label">Project 02</p>
+        <h3>Add a project title</h3>
+        <p>Duplicate this card for each project you want to feature. Keep descriptions to two or three sentences.</p>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <footer>
+    <span>&copy; <span id="year"></span> Eric Poliansky</span>
+    <span>ep778@scarletmail.rutgers.edu</span>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
